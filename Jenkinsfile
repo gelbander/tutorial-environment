@@ -12,8 +12,13 @@ pipeline {
             }
         }
         stage("deploy") {
+            when {
+                expression {
+                    BRANCH_NAME == 'main'
+                }
+            }
             steps {
-                echo "deploying the application"
+                echo "deploying the application, only when merged to master!!!!"
             }
         }
     }
